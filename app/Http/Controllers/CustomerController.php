@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Branch;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class BranchController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $output = Branch::all();
+        $output = Customer::all();
         return response()->json($output);
     }
 
@@ -22,32 +22,32 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         $credentials = $request->all();
-        $created = Branch::create($credentials);
+        $created = Customer::create($credentials);
         return response()->json($created, 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Branch $branch)
+    public function show(Customer $customer)
     {
-        return response()->json($branch);
+        return response()->json($customer);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Branch $branch)
+    public function update(Request $request, Customer $customer)
     {
         $credentials = $request->all();
-        $branch->update($credentials);
+        $customer->update($credentials);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Branch $branch)
+    public function destroy(Customer $customer)
     {
-        $branch->delete();
+        $customer->delete();
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -34,6 +35,7 @@ Route::post('login', function (Request $request) {
 
 Route::apiResource('users', UserController::class);
 Route::apiResource('branches', BranchController::class);
+Route::apiResource('customers', CustomerController::class);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
 });
