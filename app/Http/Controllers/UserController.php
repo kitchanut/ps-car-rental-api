@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $output = User::all();
+        $output = User::with('branch')->get();
         return response()->json($output);
     }
 
@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $credentials = $request->only(['name', 'email', 'password', 'status']);
+        $credentials = $request->all();
         $credentials['password'] = Hash::make($credentials['password']);
         $user = User::where('email', $credentials['email'])->first();
         if ($user) {
