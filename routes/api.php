@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\CarBrandController;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\CarModelController;
+use App\Http\Controllers\CarSubModelController;
+use App\Http\Controllers\CarTypeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -34,8 +39,14 @@ Route::post('login', function (Request $request) {
 });
 
 Route::apiResource('users', UserController::class);
-Route::apiResource('branches', BranchController::class);
 Route::apiResource('customers', CustomerController::class);
+Route::apiResource('branches', BranchController::class);
+Route::apiResource('car', CarController::class);
+Route::apiResource('car_type', CarTypeController::class);
+Route::apiResource('car_brands', CarBrandController::class);
+Route::apiResource('car_models', CarModelController::class);
+Route::apiResource('car_sub_models', CarSubModelController::class);
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
-});
+
+
+Route::group(['middleware' => 'auth:sanctum'], function () {});
