@@ -47,6 +47,4 @@ Route::apiResource('car_brands', CarBrandController::class);
 Route::apiResource('car_models', CarModelController::class);
 Route::apiResource('car_sub_models', CarSubModelController::class);
 
-
-
 Route::group(['middleware' => 'auth:sanctum'], function () {});
